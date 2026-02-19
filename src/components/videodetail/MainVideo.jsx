@@ -1,13 +1,11 @@
 import { LuThumbsUp, LuThumbsDown, LuHeart } from 'react-icons/lu';
 import { MdOutlineFileDownload } from 'react-icons/md';
-import videoImg from '/src/img/videoDetail/sub_main.png';
-
 const MainVideo = () => {
     return (
         <section className="video-main-section">
             <div className="video-player-area">
                 <div className="video-placeholder">
-                    <img src={videoImg} alt="Video Thumbnail" />
+                    <img src="/img/videoDetail/sub_main.png" alt="Video Thumbnail" />
                 </div>
             </div>
 
