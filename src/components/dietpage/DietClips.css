@@ -1,0 +1,366 @@
+/* --- 전체 섹션 설정 --- */
+.clips-section {
+  font-family: "Pretendard", sans-serif;
+  margin-bottom: 7.5rem; /* 120px */
+  overflow: hidden;
+}
+
+/* --- 헤더 --- */
+.clips-header-container {
+  width: 100%; /* 원본 그대로 100% 유지 */
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.clips-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 2.5rem; /* 40px */
+}
+
+.clips-title {
+  font-size: 2.125rem; /* 34px */
+  font-weight: 700;
+  color: #1d1d1d;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.clips-more {
+  font-size: 0.8125rem; /* 13px */
+  font-weight: 400;
+  color: #555;
+  cursor: pointer;
+  margin-bottom: 0.375rem; /* 6px */
+}
+
+/* --- 3D 슬라이더 래퍼 --- */
+.clips-slider-wrapper {
+  position: relative;
+  width: 100%;
+  height: 46.875rem; /* 750px */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: grab;
+  user-select: none;
+  mask-image: linear-gradient(
+    to right,
+    transparent 5%,
+    black 25%,
+    black 75%,
+    transparent 95%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 5%,
+    black 25%,
+    black 75%,
+    transparent 95%
+  );
+}
+
+.clips-slider-wrapper:active {
+  cursor: grabbing;
+}
+
+/* --- 개별 카드 디자인 --- */
+.clip-card {
+  position: absolute;
+  width: 23.75rem; /* 380px */
+  height: 37.5rem; /* 600px */
+  border-radius: 1.25rem; /* 20px */
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  box-shadow: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.15);
+}
+
+.clip-card.center {
+  transform: translateX(0) scale(1);
+  z-index: 10;
+  box-shadow: 0 1.25rem 3.125rem rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+.clip-card:not(.center) .clip-bg {
+  filter: blur(4px) brightness(0.6);
+  transform: scale(1.1);
+}
+
+/* --- 3D 위치 설정 --- */
+.clip-card.left1 {
+  transform: translateX(-75%) scale(0.85);
+  z-index: 5;
+}
+.clip-card.right1 {
+  transform: translateX(75%) scale(0.85);
+  z-index: 5;
+}
+.clip-card.left2 {
+  transform: translateX(-140%) scale(0.7);
+  z-index: 1;
+  opacity: 0.7;
+}
+.clip-card.right2 {
+  transform: translateX(140%) scale(0.7);
+  z-index: 1;
+  opacity: 0.7;
+}
+
+.clip-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.5s ease;
+}
+
+/* --- 내부 그라데이션 오버레이 --- */
+.clip-gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0.6) 25%,
+    rgba(0, 0, 0, 0.3) 50%,
+    transparent 100%
+  );
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.clip-card.center .clip-gradient-overlay {
+  opacity: 1;
+}
+
+/* --- 콘텐츠 영역 --- */
+.clip-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1.875rem 1.5rem; /* 30px 24px */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  color: #fff;
+  z-index: 20;
+  opacity: 0;
+  transform: translateY(1.25rem);
+  transition: all 0.4s ease-out;
+  pointer-events: none;
+}
+
+.clip-content.active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.clip-info-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+/* --- 프로필 영역 --- */
+.profile-box {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem; /* 10px */
+  margin-bottom: 0.9375rem; /* 15px */
+}
+
+.profile-img {
+  width: 2.25rem; /* 36px */
+  height: 2.25rem;
+  border-radius: 50%;
+  border: 1px solid #fff;
+}
+
+.nick-box {
+  font-size: 1rem; /* 16px */
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  height: 2.25rem;
+}
+
+.dot {
+  margin: 0 0.25rem;
+}
+.follow {
+  color: #ff9b53;
+  font-weight: 700;
+}
+
+/* --- 하단 정보 --- */
+.title-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; /* 8px */
+}
+
+.clip-subject {
+  font-size: 1.875rem; /* 30px */
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  margin: 0;
+  line-height: 1.2;
+  word-break: keep-all;
+}
+
+.clip-info {
+  font-size: 1rem; /* 16px */
+  font-weight: 700;
+  color: #c6c6c6;
+  letter-spacing: -0.025em;
+}
+
+/* --- 오른쪽 사이드바 아이콘 --- */
+.sidebar-icons {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem; /* 20px */
+  align-items: center;
+  padding-bottom: 0.625rem;
+}
+
+.icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  transition: transform 0.2s;
+}
+
+.icon-item:hover {
+  transform: scale(1.1);
+}
+
+.side-icon {
+  font-size: 1.75rem; /* 28px */
+}
+
+.icon-text {
+  font-size: 0.8125rem; /* 13px */
+  font-weight: 700;
+}
+
+.more-btn-vertical {
+  margin-top: 0.625rem;
+}
+
+.heart-icon {
+  transition: all 0.3s ease;
+  color: #fff;
+}
+
+.heart-icon.liked {
+  fill: #e84700;
+  color: #e84700;
+  transform: scale(1.1);
+}
+
+/* --- 반응형 레이아웃 --- */
+@media screen and (max-width: 892px) {
+  .clips-section {
+    margin-bottom: 5rem;
+  }
+
+  .clips-slider-wrapper {
+    height: 38rem;
+  }
+
+  .clip-card {
+    width: 19rem;
+    height: 31rem;
+  }
+
+  .clip-card.left1 {
+    transform: translateX(-66%) scale(0.82);
+  }
+
+  .clip-card.right1 {
+    transform: translateX(66%) scale(0.82);
+  }
+
+  .clip-card.left2 {
+    transform: translateX(-118%) scale(0.68);
+  }
+
+  .clip-card.right2 {
+    transform: translateX(118%) scale(0.68);
+  }
+
+  .clip-subject {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .clips-section {
+    margin-bottom: 3rem;
+  }
+
+  .clips-header-container {
+    width: 100%;
+  }
+
+  .clips-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .clips-slider-wrapper {
+    height: 31rem;
+    mask-image: none;
+    -webkit-mask-image: none;
+    overflow: hidden;
+  }
+
+  .clip-card {
+    width: min(90vw, 320px);
+    height: 29rem;
+  }
+
+  .clip-card.left1,
+  .clip-card.right1,
+  .clip-card.left2,
+  .clip-card.right2 {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(0) scale(0.85);
+  }
+
+  .clip-subject {
+    font-size: 1.375rem; /* 22px */
+    line-height: 1.3;
+  }
+
+  .clips-title {
+    font-size: 1.5rem; /* 24px */
+  }
+
+  .clip-content {
+    padding: 1.25rem 1rem;
+  }
+
+  .sidebar-icons {
+    gap: 0.75rem;
+  }
+
+  .icon-item {
+    min-width: 44px;
+    min-height: 44px;
+    justify-content: center;
+  }
+}

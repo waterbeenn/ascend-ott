@@ -1,0 +1,175 @@
+﻿/* --- ?꾩껜 而⑦뀒?대꼫 --- */
+.recipes-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto 5rem; /* 80px -> 5rem */
+  padding-top: 1.25rem; /* 20px */
+  font-family: "Pretendard", sans-serif;
+}
+
+/* --- ?곷떒 ?ㅻ뜑 --- */
+.recipes-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 1.875rem; /* 30px */
+}
+
+.recipes-title {
+  font-size: clamp(1.5rem, 3vw, 2.125rem); /* 24px ~ 34px ?좊룞??蹂寃?*/
+  font-weight: 700;
+  color: #1d1d1d;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.recipes-more {
+  font-size: 0.81rem; /* 13px */
+  font-weight: 400;
+  color: #555;
+  cursor: pointer;
+  margin-bottom: 0.375rem; /* 6px */
+}
+
+/* --- ?ㅽ겕濡??곸뿭 --- */
+.recipes-list {
+  display: flex;
+  gap: 1.75rem; /* 28px */
+  overflow-x: auto;
+  cursor: grab;
+  padding-bottom: 1.25rem; /* 20px */
+  scrollbar-width: none; /* ?뚯씠?댄룺???ㅽ겕濡ㅻ컮 ?④? */
+}
+
+.recipes-list::-webkit-scrollbar {
+  display: none; /* ?щ＼ ?ㅽ겕濡ㅻ컮 ?④? */
+}
+
+.recipes-list.dragging,
+.recipes-list.dragging .recipe-card {
+  cursor: grabbing !important;
+}
+
+/* --- ?덉떆??移대뱶 --- */
+.recipe-card {
+  min-width: 28.4vw; /* ?붾㈃ ?덈퉬??鍮꾨??섍쾶 ?ㅼ젙 */
+  max-width: 455px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+/* --- ?ъ쭊 ?곸뿭 --- */
+.recipe-img {
+  width: 100%;
+  height: 20vw; /* ?붾㈃ ?덈퉬??鍮꾨????믪씠 */
+  max-height: 320px;
+  min-height: 210px;
+  border-radius: 0.93rem; /* 15px */
+  object-fit: cover;
+  margin-bottom: 1.125rem; /* 18px */
+}
+
+/* --- ?띿뒪???뺣낫 ?곸뿭 --- */
+.recipe-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.recipe-title {
+  font-size: 1.5rem; /* 24px */
+  font-weight: 700;
+  color: #1d1d1d;
+  letter-spacing: -0.025em;
+  margin: 0 0 0.375rem 0; /* margin-bottom 6px */
+}
+
+.recipe-desc {
+  font-size: 1rem; /* 16px */
+  font-weight: 700;
+  color: #2d2d2d;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.875rem 0; /* margin-bottom 14px */
+}
+
+/* --- ?댁떆?쒓렇 ?곸뿭 --- */
+.recipe-tags {
+  display: flex;
+  gap: 0.375rem; /* 6px */
+  flex-wrap: wrap; /* 紐⑤컮?쇱뿉???쒓렇 ?섏튂吏 ?딄쾶 */
+}
+
+.recipe-tag {
+  border: 0.8px solid #c6c6c6;
+  border-radius: 0.93rem; /* 15px */
+  padding: 0.1rem 0.625rem; /* 1.5px 10px */
+  font-size: 0.875rem; /* 14px */
+  font-weight: 700;
+  color: #c6c6c6;
+  letter-spacing: -0.01em;
+  line-height: 1.45;
+}
+
+/* --- 諛섏쓳???덉씠?꾩썐 --- */
+@media screen and (max-width: 892px) {
+  .recipes-container {
+    width: 100%;
+    margin-bottom: 4rem;
+  }
+
+  .recipes-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+    overflow: visible;
+    cursor: default;
+  }
+
+  .recipe-card {
+    min-width: 0;
+    max-width: none;
+  }
+
+  .recipe-img {
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 4 / 3;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .recipes-container {
+    width: 100%;
+    margin-bottom: 3rem;
+  }
+
+  .recipes-header {
+    margin-bottom: 1rem;
+  }
+
+  .recipes-list {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding-bottom: 0;
+  }
+
+  .recipes-title {
+    font-size: 1.5rem;
+  }
+
+  .recipe-title {
+    font-size: 1.25rem;
+  }
+
+  .recipe-desc {
+    font-size: 0.9375rem;
+    line-height: 1.5;
+  }
+
+  .recipe-tag {
+    min-height: 28px;
+    display: inline-flex;
+    align-items: center;
+  }
+}

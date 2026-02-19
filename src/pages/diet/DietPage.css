@@ -1,0 +1,35 @@
+.diet-page-container {
+    padding-top: 210px;
+    padding-left: 170px;
+    padding-right: 170px;
+    padding-bottom: 64px;
+
+    width: 100%;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    background-color: #ffffff;
+    overflow-x: hidden;
+}
+
+@media (max-width: 892px) {
+    .diet-page-container {
+        padding-top: 140px;
+        padding-left: 40px;
+        padding-right: 40px;
+        padding-bottom: 56px;
+        gap: 48px;
+    }
+}
+
+@media (max-width: 767px) {
+    .diet-page-container {
+        padding-top: 96px;
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-bottom: 40px;
+        gap: 32px;
+    }
+}
